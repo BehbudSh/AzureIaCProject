@@ -2,12 +2,12 @@
 
 Param(
     [string] $ResourceGroupLocation = 'West Europe',
-    [string] $ResourceGroupName = 'ProdProjectRG',
+    [string] $ResourceGroupName = 'ProjectRG',
     [switch] $UploadArtifacts,
     [string] $StorageAccountName,
     [string] $StorageContainerName = $ResourceGroupName.ToLowerInvariant() + '-stageartifacts',
     [string] $TemplateFile = 'azuredeploy.json',
-    [string] $TemplateParametersFile = 'azuredeploy.prod-parameters.json',
+    [string] $TemplateParametersFile ,
     [string] $ArtifactStagingDirectory = '.',
     [string] $DSCSourceFolder = 'DSC',
     [switch] $ValidateOnly
