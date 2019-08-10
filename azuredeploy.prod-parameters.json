@@ -59,6 +59,10 @@
     "ipconfig": {
       "value": "ipconfigprod"
     },
+    
+    "VMPublicIPName": {
+      "value": "ProdPublicIP"
+    },
     "NSGSecurityRules": {
       "value": {
         "SecurityRules": [

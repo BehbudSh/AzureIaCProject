@@ -59,6 +59,9 @@
     "ipconfig": {
       "value": "ipconfigdev"
     },
+    "VMPublicIPName": {
+      "value": "DevPublicIP"
+    },
     "NSGSecurityRules": {
       "value": {
         "SecurityRules": [
