@@ -252,7 +252,7 @@
       "properties": {
         "ipConfigurations": [
           {
-            "name": "[parameters('ipconfig')]",
+            "name": "ipconfig1",
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
               "subnet": {

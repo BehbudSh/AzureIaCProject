@@ -55,11 +55,7 @@
     },
     "thumbprint": {
       "value": "DF74E1019287A8999A867CEC58E55E217F2459EE"
-    },
-    "ipconfig": {
-      "value": "ipconfigprod"
-    },
-    
+    },  
     "VMPublicIPName": {
       "value": "ProdPublicIP"
     },
