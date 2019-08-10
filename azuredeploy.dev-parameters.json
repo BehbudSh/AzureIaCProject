@@ -6,7 +6,7 @@
       "value": "VM"
     },
     "VMAdminUserName": {
-      "value": "devadm"
+      "value": "prodadm"
     },
     "VMAdminPassword": {
       "value": "A123456a"
@@ -15,7 +15,7 @@
       "value": "devvmtest"
     },
     "vmsqlsrvAdminLogin": {
-      "value": "devsqladm"
+      "value": "prodsqladm"
     },
     "vmsqlsrvAdminLoginPassword": {
       "value": "A123456a"
