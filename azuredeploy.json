@@ -142,6 +142,9 @@
       "metadata": {
         "description": "Password for the PFX certificate."
       }
+    },
+    "ipconfig": {
+      "type": "string"
     }
   },
   "variables": {
@@ -247,7 +250,7 @@
       "properties": {
         "ipConfigurations": [
           {
-            "name": "ipconfig1",
+            "name": "[parameters('ipconfig')]",
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
               "subnet": {
