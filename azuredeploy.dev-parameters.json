@@ -59,6 +59,9 @@
     "VMPublicIPName": {
       "value": "DevPublicIP"
     },
+    "VMNicName": {
+      "value": "DevVMNic"
+    },
     "NSGSecurityRules": {
       "value": {
         "SecurityRules": [

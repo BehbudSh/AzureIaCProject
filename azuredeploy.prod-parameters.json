@@ -59,6 +59,9 @@
     "VMPublicIPName": {
       "value": "ProdPublicIP"
     },
+    "VMNicName": {
+      "value": "ProdVMNic"
+    },
     "NSGSecurityRules": {
       "value": {
         "SecurityRules": [

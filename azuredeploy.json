@@ -145,6 +145,9 @@
     },
     "VMPublicIPName": {
       "type": "string"
+    },
+    "VMNicName": {
+      "type": "string"
     }
   },
   "variables": {
@@ -161,7 +164,6 @@
     "VMVnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'VmNetwork')]",
     "VMSubnetRef": "[concat(variables('VMVnetID'), '/subnets/', variables('VmNetworkSubnet1Name'))]",
     "VMStorageAccountContainerName": "vhds",
-    "VMNicName": "[concat(parameters('VMName'), 'NetworkInterface')]",
     "vmsqlsrvName": "[concat('vmsqlsrv', uniqueString(resourceGroup().id))]",
     "networkSecurityGroupNAme": "VMNSG",
     "vmdscArchiveFolder": "DSC",
@@ -235,7 +237,7 @@
       }
     },
     {
-      "name": "[variables('VMNicName')]",
+      "name": "[parameters('VMNicName')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[resourceGroup().location]",
       "apiVersion": "2016-03-30",
@@ -270,7 +272,7 @@
       "apiVersion": "2015-06-15",
       "dependsOn": [
         "[resourceId('Microsoft.Storage/storageAccounts', variables('vmstorageName'))]",
-        "[resourceId('Microsoft.Network/networkInterfaces', variables('VMNicName'))]"
+        "[resourceId('Microsoft.Network/networkInterfaces', parameters('VMNicName'))]"
       ],
       "tags": {
         "displayName": "VM"
@@ -303,7 +305,7 @@
         "networkProfile": {
           "networkInterfaces": [
             {
-              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('VMNicName'))]"
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('VMNicName'))]"
             }
           ]
         }
