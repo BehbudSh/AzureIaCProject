@@ -143,9 +143,6 @@
         "description": "Password for the PFX certificate."
       }
     },
-    "ipconfig": {
-      "type": "string"
-    },
     "VMPublicIPName": {
       "type": "string"
     }
