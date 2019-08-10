@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "VMName": {
-      "value": "DevVM"
+      "value": "VM"
     },
     "VMAdminUserName": {
       "value": "devadm"
@@ -21,7 +21,7 @@
       "value": "A123456a"
     },
     "vmsqldbName": {
-      "value": "devsqldb"
+      "value": "sqldb"
     },
     "vmsqlimportStorageKeyType": {
       "value": "StorageAccessKey"

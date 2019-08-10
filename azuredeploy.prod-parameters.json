@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "VMName": {
-      "value": "ProdVM"
+      "value": "VM"
     },
     "VMAdminUserName": {
       "value": "prodadm"
@@ -21,7 +21,7 @@
       "value": "A123456a"
     },
     "vmsqldbName": {
-      "value": "prodsqldb"
+      "value": "sqldb"
     },
     "vmsqlimportStorageKeyType": {
       "value": "StorageAccessKey"

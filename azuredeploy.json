@@ -165,7 +165,6 @@
     "VMSubnetRef": "[concat(variables('VMVnetID'), '/subnets/', variables('VmNetworkSubnet1Name'))]",
     "VMStorageAccountContainerName": "vhds",
     "VMNicName": "[concat(parameters('VMName'), 'NetworkInterface')]",
-    "VMPublicIPName": "VMPublicIP",
     "vmsqlsrvName": "[concat('vmsqlsrv', uniqueString(resourceGroup().id))]",
     "networkSecurityGroupNAme": "VMNSG",
     "vmdscArchiveFolder": "DSC",
@@ -245,7 +244,7 @@
       "apiVersion": "2016-03-30",
       "dependsOn": [
         "[resourceId('Microsoft.Network/virtualNetworks', 'VmNetwork')]",
-        "[resourceId('Microsoft.Network/publicIPAddresses', variables('VMPublicIPName'))]"
+        "[resourceId('Microsoft.Network/publicIPAddresses', parameters('VMPublicIPName'))]"
       ],
       "tags": {
         "displayName": "VMNic"
@@ -260,7 +259,7 @@
                 "id": "[variables('VMSubnetRef')]"
               },
               "publicIPAddress": {
-                "id": "[resourceId('Microsoft.Network/publicIPAddresses', variables('VMPublicIPName'))]"
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('VMPublicIPName'))]"
               }
             }
           }
