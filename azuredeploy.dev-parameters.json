@@ -62,6 +62,15 @@
     "VMNicName": {
       "value": "DevVMNic"
     },
+    "networkSecurityGroupNAme": {
+      "value": "devvmnsg"
+    },
+    "VmNetwork": {
+      "value": "devvmnetwork"
+    },
+    "vmsqlsrvName": {
+      "value": "devvmsql"
+    },
     "NSGSecurityRules": {
       "value": {
         "SecurityRules": [

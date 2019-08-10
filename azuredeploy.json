@@ -148,6 +148,15 @@
     },
     "VMNicName": {
       "type": "string"
+    },
+    "networkSecurityGroupNAme": {
+      "type": "string"
+    },
+    "VmNetwork": {
+      "type": "string"
+    },
+    "vmsqlsrvName": {
+      "type": "string"
     }
   },
   "variables": {
@@ -159,13 +168,11 @@
     "VmNetworkSubnet2Prefix": "10.0.1.0/24",
     "VMImagePublisher": "MicrosoftWindowsServer",
     "VMImageOffer": "WindowsServer",
-    "VMOSDiskName": "VMOSDisk",
+    "VMOSDiskName": "[concat(parameters('VMName'), '-osdisk')]",
     "VMVmSize": "Standard_D2_v2",
-    "VMVnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'VmNetwork')]",
+    "VMVnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('VmNetwork'))]",
     "VMSubnetRef": "[concat(variables('VMVnetID'), '/subnets/', variables('VmNetworkSubnet1Name'))]",
     "VMStorageAccountContainerName": "vhds",
-    "vmsqlsrvName": "[concat('vmsqlsrv', uniqueString(resourceGroup().id))]",
-    "networkSecurityGroupNAme": "VMNSG",
     "vmdscArchiveFolder": "DSC",
     "elasticPoolName": "elasticPool"
   },
@@ -185,15 +192,15 @@
       "kind": "Storage"
     },
     {
-      "name": "VmNetwork",
+      "name": "[parameters('VmNetwork')]",
       "type": "Microsoft.Network/virtualNetworks",
       "location": "[resourceGroup().location]",
       "apiVersion": "2016-03-30",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+        "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]"
       ],
       "tags": {
-        "displayName": "VmNetwork"
+        "displayName": "[parameters('VmNetwork')]"
       },
       "properties": {
         "addressSpace": {
@@ -207,7 +214,7 @@
             "properties": {
               "addressPrefix": "[variables('VmNetworkSubnet1Prefix')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups' ,variables('networkSecurityGroupName'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups' ,parameters('networkSecurityGroupName'))]"
               }
             }
           },
@@ -216,7 +223,7 @@
             "properties": {
               "addressPrefix": "[variables('VmNetworkSubnet2Prefix')]",
               "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups' ,variables('networkSecurityGroupName'))]"
+                "id": "[resourceId('Microsoft.Network/networkSecurityGroups' ,parameters('networkSecurityGroupName'))]"
               }
             }
           }
@@ -226,7 +233,7 @@
     {
       "type": "Microsoft.Network/networkSecurityGroups",
       "apiVersion": "2018-12-01",
-      "name": "[variables('networkSecurityGroupNAme')]",
+      "name": "[parameters('networkSecurityGroupNAme')]",
       "location": "[resourceGroup().location]",
       "dependsOn": [],
       "tags": {
@@ -242,7 +249,7 @@
       "location": "[resourceGroup().location]",
       "apiVersion": "2016-03-30",
       "dependsOn": [
-        "[resourceId('Microsoft.Network/virtualNetworks', 'VmNetwork')]",
+        "[resourceId('Microsoft.Network/virtualNetworks', parameters('VmNetwork'))]",
         "[resourceId('Microsoft.Network/publicIPAddresses', parameters('VMPublicIPName'))]"
       ],
       "tags": {
@@ -370,7 +377,7 @@
       }
     },
     {
-      "name": "[variables('vmsqlsrvName')]",
+      "name": "[parameters('vmsqlsrvName')]",
       "type": "Microsoft.Sql/servers",
       "location": "[resourceGroup().location]",
       "apiVersion": "2014-04-01-preview",
@@ -389,7 +396,7 @@
           "location": "[resourceGroup().location]",
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "[resourceId('Microsoft.Sql/servers', variables('vmsqlsrvName'))]"
+            "[resourceId('Microsoft.Sql/servers', parameters('vmsqlsrvName'))]"
           ],
           "properties": {
             "startIpAddress": "0.0.0.0",
@@ -402,7 +409,7 @@
           "type": "elasticPools",
           "location": "[resourceGroup().location]",
           "dependsOn": [
-            "[variables('vmsqlsrvName')]"
+            "[parameters('vmsqlsrvName')]"
           ],
           "tags": {
             "displayName": "ElasticPool"
@@ -420,7 +427,7 @@
           "location": "[resourceGroup().location]",
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "[resourceId('Microsoft.Sql/servers', variables('vmsqlsrvName'))]",
+            "[resourceId('Microsoft.Sql/servers', parameters('vmsqlsrvName'))]",
             "[variables('elasticPoolName')]"
           ],
           "tags": {
@@ -438,7 +445,7 @@
               "type": "extensions",
               "apiVersion": "2014-04-01-preview",
               "dependsOn": [
-                "[resourceId('Microsoft.Sql/servers/databases', split(concat(variables('vmsqlsrvName'), '/', parameters('vmsqldbName')), '/')[0], split(concat(variables('vmsqlsrvName'), '/', parameters('vmsqldbName')), '/')[1])]"
+                "[resourceId('Microsoft.Sql/servers/databases', split(concat(parameters('vmsqlsrvName'), '/', parameters('vmsqldbName')), '/')[0], split(concat(parameters('vmsqlsrvName'), '/', parameters('vmsqldbName')), '/')[1])]"
               ],
               "tags": {
                 "displayName": "vmsqlimport"

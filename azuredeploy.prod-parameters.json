@@ -62,6 +62,15 @@
     "VMNicName": {
       "value": "ProdVMNic"
     },
+    "networkSecurityGroupNAme": {
+      "value": "prodvmnsg"
+    },
+    "VmNetwork": {
+      "value": "prodvmnetwork"
+    },
+    "vmsqlsrvName": {
+      "value": "prodvmsql"
+    },
     "NSGSecurityRules": {
       "value": {
         "SecurityRules": [
