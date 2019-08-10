@@ -2,7 +2,7 @@
 
 Param(
     [string] $ResourceGroupLocation = 'West Europe',
-    [string] $ResourceGroupName = 'ProjectAzure',
+    [string] $ResourceGroupName = 'ProjectAzureRG',
     [switch] $UploadArtifacts,
     [string] $StorageAccountName,
     [string] $StorageContainerName = $ResourceGroupName.ToLowerInvariant() + '-stageartifacts',
