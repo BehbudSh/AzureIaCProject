@@ -178,20 +178,6 @@
   },
   "resources": [
     {
-      "name": "[variables('vmstorageName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "location": "[resourceGroup().location]",
-      "apiVersion": "2016-01-01",
-      "sku": {
-        "name": "[parameters('vmstorageType')]"
-      },
-      "dependsOn": [],
-      "tags": {
-        "displayName": "vmstorage"
-      },
-      "kind": "Storage"
-    },
-    {
       "name": "[parameters('VmNetwork')]",
       "type": "Microsoft.Network/virtualNetworks",
       "location": "[resourceGroup().location]",
@@ -302,8 +288,8 @@
           },
           "osDisk": {
             "name": "[variables('vmOSDiskName')]",
-            "vhd": {
-              "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts', variables('vmstorageName')), '2016-01-01').primaryEndpoints.blob, variables('VMStorageAccountContainerName'), '/', variables('VMOSDiskName'), '.vhd')]"
+            "managedDisk": {
+              "storageAccountType": "StandardSSD_LRS"
             },
             "caching": "ReadWrite",
             "createOption": "FromImage"
