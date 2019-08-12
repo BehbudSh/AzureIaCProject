@@ -25,8 +25,9 @@ Configuration Main
             Ensure = "Present"
         }
         WindowsFeature ASP { 
-            Ensure = “Present” 
-            Name   = “Web-Asp-Net45” 
+            Ensure    = "Present" 
+            Name      = "Web-Asp-Net45"
+            DependsOn = "[WindowsFeature]InstallWebServer"
         } 
         WindowsFeature WebManagementService {
             Name   = "Web-Mgmt-Service"
