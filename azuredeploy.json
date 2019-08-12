@@ -160,7 +160,6 @@
     }
   },
   "variables": {
-    "vmstorageName": "[concat('vmstorage', uniqueString(resourceGroup().id))]",
     "VmNetworkPrefix": "10.0.0.0/16",
     "VmNetworkSubnet1Name": "Subnet-1",
     "VmNetworkSubnet1Prefix": "10.0.0.0/24",
@@ -172,7 +171,6 @@
     "VMVmSize": "Standard_D2_v2",
     "VMVnetID": "[resourceId('Microsoft.Network/virtualNetworks', parameters('VmNetwork'))]",
     "VMSubnetRef": "[concat(variables('VMVnetID'), '/subnets/', variables('VmNetworkSubnet1Name'))]",
-    "VMStorageAccountContainerName": "vhds",
     "vmdscArchiveFolder": "DSC",
     "elasticPoolName": "elasticPool"
   },
@@ -264,11 +262,10 @@
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-06-15",
       "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('vmstorageName'))]",
         "[resourceId('Microsoft.Network/networkInterfaces', parameters('VMNicName'))]"
       ],
       "tags": {
-        "displayName": "VM"
+        "displayName": "[parameters('VMName')]"
       },
       "properties": {
         "hardwareProfile": {
