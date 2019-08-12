@@ -103,6 +103,34 @@
             }
           },
           {
+            "name": "Allow80",
+            "properties": {
+              "description": "Allow port 80",
+              "sourceAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationAddressPrefix": "*",
+              "destinationPortRange": "80",
+              "protocol": "Tcp",
+              "direction": "Inbound",
+              "priority": 300,
+              "access": "Allow"
+            }
+          },
+          {
+            "name": "Allow443",
+            "properties": {
+              "description": "Allow port 443",
+              "sourceAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationAddressPrefix": "*",
+              "destinationPortRange": "443",
+              "protocol": "Tcp",
+              "direction": "Inbound",
+              "priority": 400,
+              "access": "Allow"
+            }
+          },
+          {
             "name": "DenyAllInbound",
             "properties": {
               "description": "Block all incoming traffic",
@@ -112,7 +140,7 @@
               "destinationPortRange": "*",
               "protocol": "*",
               "direction": "Inbound",
-              "priority": 300,
+              "priority": 500,
               "access": "Deny"
             }
           }
