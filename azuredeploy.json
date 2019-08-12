@@ -301,7 +301,7 @@
             "version": "latest"
           },
           "osDisk": {
-            "name": "VMOSDisk",
+            "name": "[variables('vmOSDiskName')]",
             "vhd": {
               "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts', variables('vmstorageName')), '2016-01-01').primaryEndpoints.blob, variables('VMStorageAccountContainerName'), '/', variables('VMOSDiskName'), '.vhd')]"
             },
