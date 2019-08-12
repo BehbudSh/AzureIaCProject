@@ -2,9 +2,9 @@ Configuration Main
 {
 
     Param ( [string] $nodeName,
-            [string]$certfilelocation,
-            [string] $Thumbprint,
-            [PSCredential]$certcredential
+        [string]$certfilelocation,
+        [string] $Thumbprint,
+        [PSCredential]$certcredential
     )
 
     Import-DscResource -ModuleName PSDesiredStateConfiguration
@@ -24,6 +24,10 @@ Configuration Main
             Name   = "Web-Mgmt-Console"
             Ensure = "Present"
         }
+        WindowsFeature ASP { 
+            Ensure = “Present” 
+            Name   = “Web-Asp-Net45” 
+        } 
         WindowsFeature WebManagementService {
             Name   = "Web-Mgmt-Service"
             Ensure = "Present"
@@ -91,12 +95,12 @@ Configuration Main
         }
         # Create the new Website with HTTP and HTTPS
         xWebsite NewWebsite {
-            Ensure          = "Present"
-            Name            = "prodvm.westeurope.cloudapp.azure.com"
-            State           = "Started"
-            PhysicalPath    = "C:\inetpub\wwwroot"
-            DependsOn       = @("[WindowsFeature]InstallWebServer", "[xPfxImport]ImportPfxCert")
-            BindingInfo     = @(
+            Ensure       = "Present"
+            Name         = "prodvm.westeurope.cloudapp.azure.com"
+            State        = "Started"
+            PhysicalPath = "C:\inetpub\wwwroot"
+            DependsOn    = @("[WindowsFeature]InstallWebServer", "[xPfxImport]ImportPfxCert")
+            BindingInfo  = @(
                 MSFT_xWebBindingInformation {
                     Protocol              = "HTTPS"
                     Port                  = 443
