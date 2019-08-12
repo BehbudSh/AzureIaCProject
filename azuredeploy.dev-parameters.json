@@ -12,7 +12,7 @@
       "value": "A123456a"
     },
     "VMPublicIPDnsName": {
-      "value": "devvmenv"
+      "value": "devvm"
     },
     "vmsqlsrvAdminLogin": {
       "value": "prodsqladm"
