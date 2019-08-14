@@ -439,7 +439,7 @@
   "outputs": {
     "DatabaseConnectionString": {
       "type": "string",
-      "value": "[concat('Server=tcp:',reference(parameters('vmsqlsrvName')).fullyQualifiedDomainName,',1433;Initial Catalog=',parameters('vmsqldbName'),';Persist Security Info=False;User ID=',reference(parameters('vmsqlsrvName')).administratorLogin,';Password=',reference(parameters('vmsqlsrvName')).administratorLoginPassword,';MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;')]"
+      "value": "[concat('Server=tcp:',reference(parameters('vmsqlsrvName')).fullyQualifiedDomainName,',1433;Initial Catalog=',parameters('vmsqldbName'),';Persist Security Info=False;User ID=',reference(parameters('vmsqlsrvName')).administratorLogin,';Password=',parameters('vmsqlsrvAdminLoginPassword'),';MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;')]"
     }
   }
 }
