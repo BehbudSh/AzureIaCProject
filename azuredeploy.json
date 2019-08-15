@@ -359,7 +359,8 @@
       },
       "properties": {
         "administratorLogin": "[parameters('vmsqlsrvAdminLogin')]",
-        "administratorLoginPassword": "[parameters('vmsqlsrvAdminLoginPassword')]"
+        "administratorLoginPassword": "[parameters('vmsqlsrvAdminLoginPassword')]",
+        "version": "12.0"
       },
       "resources": [
         {
