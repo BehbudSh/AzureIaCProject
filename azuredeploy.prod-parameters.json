@@ -9,7 +9,12 @@
       "value": "prodadm"
     },
     "VMAdminPassword": {
-      "value": "A123456a"
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/956299bb-8825-464d-a682-38b7c674bc7c/resourceGroups/AzKeyVaultsRG/providers/Microsoft.KeyVault/vaults/Project1KeyVaults"
+        },
+        "secretName": "VMAdminPassword"
+      }
     },
     "VMPublicIPDnsName": {
       "value": "prodvm"
@@ -18,7 +23,12 @@
       "value": "prodsqladm"
     },
     "vmsqlsrvAdminLoginPassword": {
-      "value": "A123456a"
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/956299bb-8825-464d-a682-38b7c674bc7c/resourceGroups/AzKeyVaultsRG/providers/Microsoft.KeyVault/vaults/Project1KeyVaults"
+        },
+        "secretName": "vmsqlsrvAdminLoginPassword"
+      }
     },
     "vmsqldbName": {
       "value": "sqldb"
@@ -51,10 +61,20 @@
       "value": "prodvmdsc.zip"
     },
     "pfxcertpass": {
-      "value": "A123456a"
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/956299bb-8825-464d-a682-38b7c674bc7c/resourceGroups/AzKeyVaultsRG/providers/Microsoft.KeyVault/vaults/Project1KeyVaults"
+        },
+        "secretName": "pfxcertpass"
+      }
     },
     "thumbprint": {
-      "value": "DF74E1019287A8999A867CEC58E55E217F2459EE"
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/956299bb-8825-464d-a682-38b7c674bc7c/resourceGroups/AzKeyVaultsRG/providers/Microsoft.KeyVault/vaults/Project1KeyVaults"
+        },
+        "secretName": "thumbprint"
+      }
     },  
     "VMPublicIPName": {
       "value": "ProdPublicIP"
