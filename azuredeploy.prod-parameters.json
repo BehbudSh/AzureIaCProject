@@ -11,7 +11,7 @@
     "VMAdminPassword": {
       "reference": {
         "keyVault": {
-          "id": "/subscriptions/956299bb-8825-464d-a682-38b7c674bc7c/resourceGroups/AzKeyVaultsRG/providers/Microsoft.KeyVault/vaults/Project1KeyVaults"
+          "id": "/subscriptions/9f1d69d5-a8c4-43d6-a8fe-78743af3b499/resourceGroups/AzKeyVaultsRG/providers/Microsoft.KeyVault/vaults/Project1Keys"
         },
         "secretName": "VMAdminPassword"
       }
@@ -25,7 +25,7 @@
     "vmsqlsrvAdminLoginPassword": {
       "reference": {
         "keyVault": {
-          "id": "/subscriptions/956299bb-8825-464d-a682-38b7c674bc7c/resourceGroups/AzKeyVaultsRG/providers/Microsoft.KeyVault/vaults/Project1KeyVaults"
+          "id": "/subscriptions/9f1d69d5-a8c4-43d6-a8fe-78743af3b499/resourceGroups/AzKeyVaultsRG/providers/Microsoft.KeyVault/vaults/Project1Keys"
         },
         "secretName": "vmsqlsrvAdminLoginPassword"
       }
@@ -37,10 +37,10 @@
       "value": "StorageAccessKey"
     },
     "vmsqlimportStorageKey": {
-      "value": "BELfvoa6U/lznZA+NQg6uZM+tHFi6EahMXLzRTWXMi/wRGoRod6nlB9WTRThRCcvewbgRB+vGmLza0iVYM66pQ=="
+      "value": "4sBrjXKuCU2o4CB+uJNFrGoYJ7BXi5D+RAqwot21KL9wcCnzSiHJqGzZBeIKsJ78kbv8llKwGf6bOyxJqEuHkQ=="
     },
     "vmsqlimportStorageUri": {
-      "value": "https://dbbackupblogge.blob.core.windows.net/dbbackup/newBlog.bacpac"
+      "value": "https://dbbackupblogg.blob.core.windows.net/blob/newBlog.bacpac"
     },
     "edition": {
       "value": "Standard"
@@ -63,7 +63,7 @@
     "pfxcertpass": {
       "reference": {
         "keyVault": {
-          "id": "/subscriptions/956299bb-8825-464d-a682-38b7c674bc7c/resourceGroups/AzKeyVaultsRG/providers/Microsoft.KeyVault/vaults/Project1KeyVaults"
+          "id": "/subscriptions/9f1d69d5-a8c4-43d6-a8fe-78743af3b499/resourceGroups/AzKeyVaultsRG/providers/Microsoft.KeyVault/vaults/Project1Keys"
         },
         "secretName": "pfxcertpass"
       }
@@ -71,7 +71,7 @@
     "thumbprint": {
       "reference": {
         "keyVault": {
-          "id": "/subscriptions/956299bb-8825-464d-a682-38b7c674bc7c/resourceGroups/AzKeyVaultsRG/providers/Microsoft.KeyVault/vaults/Project1KeyVaults"
+          "id": "/subscriptions/9f1d69d5-a8c4-43d6-a8fe-78743af3b499/resourceGroups/AzKeyVaultsRG/providers/Microsoft.KeyVault/vaults/Project1Keys"
         },
         "secretName": "thumbprint"
       }
